@@ -74,6 +74,7 @@ void LCD_DrawBMP(u32 BmpAddress);/*显示BMP图片*/
 void dis_juanxing(void); /*巻形特效*/
 void dis_zhongkai(void); /*中开特效*/
 void dis_circle(void);  /*圆形特效*/
+void dis_baiye(void);/* 百叶窗特效*/
 /*----- Medium layer function -----*/
 void LCD_WriteReg(unsigned int LCD_Reg, unsigned int LCD_RegValue);/*写控制寄存器*/
 void LCD_WriteRAMWord(u16 RGB_Code);/*写GRAM*/

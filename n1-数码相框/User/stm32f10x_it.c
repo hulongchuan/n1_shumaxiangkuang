@@ -238,7 +238,7 @@ void EXTI1_IRQHandler(void)
 /*******************************************************************************
 * Function Name  : EXTI2_IRQHandler
 * Description    : EXTI2_IRQHandler program
-* author         £ºÍõÏþÌÎ
+* author         £ºwangxiaotao
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -259,7 +259,7 @@ void EXTI2_IRQHandler(void)
 /*******************************************************************************
 * Function Name  : EXTI3_IRQHandler
 * Description    : EXTI3_IRQHandler program
-* author         £ºÍõÏþÌÎ
+* author         £ºhulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -422,8 +422,8 @@ void CAN_SCE_IRQHandler(void)
 
 /*******************************************************************************
 * Function Name  : EXTI9_5_IRQHandler
-* Description    : ´¥ÃþÆÁÒý·¢ÖÐ¶Ï
-* author         £ººúÁú´¨
+* Description    : EXTI9_5_IRQHandler 
+* author         £ºlikuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None

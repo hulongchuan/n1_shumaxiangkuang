@@ -1,3 +1,4 @@
+/******************************touch.c ducument was made by Li Kuan	***************************/
 #include "touch.h"   	
 #include "stdlib.h"
 #include "stm32f10x_lib.h"
@@ -144,7 +145,7 @@ u8 read_once(void)
 /*******************************************************************************
 * Function Name  : Read_Ads7846
 * Description    : Read_Ads7846 program
-* author         £ºÀî¿í
+* author         £ºlikuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None

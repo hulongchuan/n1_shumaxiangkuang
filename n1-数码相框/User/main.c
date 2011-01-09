@@ -60,7 +60,7 @@ typedef unsigned           int uint32_t;
 /*******************************************************************************
 * Function Name  : main
 * Description    : main program
-* author         ：胡龙川
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -69,7 +69,7 @@ typedef unsigned           int uint32_t;
 extern int num , flag;
 int main(void)
 {
-	SystemInit();				  //系统初始化
+	SystemInit();				  // initial the system
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
 	delay_init(72);
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_FSMC, ENABLE);    
@@ -80,7 +80,7 @@ int main(void)
 	LCD_Setup();			  	
 	NVIC_Configuration();
 		
-	while (1)				//始终执行检测程序
+	while (1)				//always running the test
 	{
 		test();
 	}	
@@ -89,7 +89,7 @@ int main(void)
 /*******************************************************************************
 * Function Name  : SystemInit
 * Description    : Init the system
-* author         ：张现元
+* author         ：wangxiaotao
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -120,7 +120,7 @@ void SystemInit (void)
 /*******************************************************************************
 * Function Name  : NVIC_Configuration
 * Description    : NVIC_Configuration  program
-* author         ：王晓涛
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -202,7 +202,7 @@ static void SetSysClock(void)
 /*******************************************************************************
 * Function Name  : EXTI_Config
 * Description    : EXTI_Config  program
-* author         ：王晓涛
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -227,7 +227,7 @@ void EXTI_Config(void)
 /*******************************************************************************
 * Function Name  : FSMC_LCD_Init
 * Description    : FSMC_LCD_Init  program
-* author         ：王晓涛
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -291,7 +291,7 @@ void Timer_Config(void)
 /*******************************************************************************
 * Function Name  : GPIO_Config
 * Description    : GPIO_Config  program
-* author         ：王晓涛
+* author         ：wangxiaotao
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None

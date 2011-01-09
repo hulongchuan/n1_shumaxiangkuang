@@ -858,12 +858,12 @@ void LCD_CtrlLinesConfig(void)
 
 void address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2)
 {
-    LCD_WriteReg(0x0020,x1);//设置X坐标位置
-    LCD_WriteReg(0x0021,y1);//设置Y坐标位置
-    LCD_WriteReg(0x0050,x1);   //开始X
-	LCD_WriteReg(0x0052,y1);	  //开始Y
-    LCD_WriteReg(0x0051,x2);  //结束X
-	LCD_WriteReg(0x0053,y2);  //结束Y
+    LCD_WriteReg(0x0020, x1);//设置X坐标位置
+    LCD_WriteReg(0x0021, y1);//设置Y坐标位置
+    LCD_WriteReg(0x0050, x1);   //开始X
+	LCD_WriteReg(0x0052, y1);	  //开始Y
+    LCD_WriteReg(0x0051, x2);  //结束X
+	LCD_WriteReg(0x0053, y2);  //结束Y
     LCD_WriteRAM_Prepare();
 }
 
@@ -871,7 +871,7 @@ void address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2
 /*******************************************************************************
 * Function Name  : dis_juanxing
 * Description    : display the picture as the type of juanxing
-* author         ：胡龙川
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -880,74 +880,74 @@ void address_set(unsigned int x1,unsigned int y1,unsigned int x2,unsigned int y2
 void dis_juanxing(void)
 {
 	u16 i,j;
-  	address_set(0,0,47,319);
+  	address_set(0, 0, 47, 319);
   	for(i = 0; i < 320; i++)
     	for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 48)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
 	address_set(0, 0, 239, 63);
   	for(i = 0; i < 320; i++)
     	for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 64)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
-	address_set(191, 63, 239, 319);
+	address_set(191, 63, 240, 320);
  	for(i = 0; i < 320; i++)
 	    for(j = 0;j < 240; j++)
 	    { 
-	      	if(i < 48)
-		   		LCD_WriteRAM(0xffff);
+	      	if(i < 60)
+		   		LCD_WriteRAM(0x0000);
 	    }
 		address_set(0, 255, 191, 319);
   	for(i = 0; i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 64)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
 	address_set(0, 63, 95, 255);
   	for(i = 0; i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 95)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
 	address_set(95, 63, 191, 127);
   	for(i = 0; i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 64)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
 	address_set(143, 127, 191, 255);
   	for(i = 0; i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 48)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
 	address_set(95, 191, 143, 255);
 	for(i = 0;i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 64)
-		   		LCD_WriteRAM(0xffff);
+		   		LCD_WriteRAM(0x0000);
 	    }
    	address_set(95, 127, 143, 191);
   	for(i = 0; i < 320; i++)
 	    for(j = 0; j < 240; j++)
 	    { 
 	      	if(i < 48)
-		   	 	LCD_WriteRAM(0xffff);
+		   	 	LCD_WriteRAM(0x0000);
 	    }
 }
 /*******************************************************************************
 * Function Name  : dis_circle
 * Description    : display the picture as the type of circle
-* author         ：张现元
+* author         ：zhangxianyuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -980,9 +980,71 @@ void dis_circle(void)
 	}
 }
 /*******************************************************************************
+* Function Name  : dis_baiye
+* Description    : display the picture as the type of baiye windows
+* author         ：zhangxianyuan
+* Input          : - file: pointer to the source file name
+*                  - line: assert_param error line source number
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void dis_baiye(void) 
+{	
+	int i, j, m, n, x;  
+	unsigned int dd;   	  
+ //	address_set(0, 0, 239, 319);
+//	LCD_Clear(White);
+	for(j = 0; j <= 60; j++)
+	{	
+ 		for(m = 0; m < 4 ;m++)
+		{
+		 	if(m % 2 == 1)
+		 	{
+			 	x = 1;
+		 	}	
+			for(n = 0; n< 2; n++)
+			{
+				address_set(60 * m + j,160 * n + 80 * x,60 * m + j, 160 * n + 80 + 80 * x);
+				for(i = 320 * (60 * m + j) + 160 * n + 80 * x; i < 320 *(60 * m + j) + 160 * n + 80 + 80 * x; i++)
+			 	{
+				 	dd = (0x00 | gImage_111[i * 2 + 1]) << 8;
+				  	dd = dd | gImage_111[ i * 2];
+				  	LCD_WriteRAM(dd);
+			  	}
+				    	  
+			}
+			x = 0;
+		 }
+    	 Delay(5000);
+	}
+
+	for(j = 0;j <= 60; j++)
+	{	
+		 for(m = 0; m < 4; m++)
+		 {
+		 	if(m % 2 == 0)
+		 	{
+			 	x = 1;
+		 	}	
+			for(n = 0; n < 2; n++)
+			{
+				address_set(60 * (m + 1) - j, 160 * n + 80 * x, 60 * (m + 1) - j, 160 * n + 80 + 80 * x);
+				for(i = 320 * (60 * (m + 1) - j) + 160 * n + 80 * x; i < 320 * (60 * (m + 1) - j) + 160 * n + 80 + 80 * x; i++)
+			 	{
+				 	dd = (0x00 | gImage_111[i * 2 + 1]) << 8;
+				  	dd = dd|gImage_111[i * 2];
+				  	LCD_WriteRAM(dd);
+			  	}    	  
+			}
+			x = 0;
+		   }
+    	   Delay(10000);
+	}
+}
+/*******************************************************************************
 * Function Name  : dis_zhongkai
 * Description    : dis_zhongkai
-* author         ：王晓涛
+* author         ：zhangxianyuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -1006,7 +1068,7 @@ void dis_zhongkai(void)
 /*******************************************************************************
 * Function Name  : show_picture
 * Description    : show one picture
-* author         ：王晓涛
+* author         ：wangxiaotao
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -1028,7 +1090,7 @@ extern int num = 0 , flag = 0;
 /*******************************************************************************
 * Function Name  : test
 * Description    : test programm
-* author         ：胡龙川
+* author         ：hulongchuan
 * Input          : - file: pointer to the source file name
 *                  - line: assert_param error line source number
 * Output         : None
@@ -1040,42 +1102,59 @@ void test(void)
 	{
 		case 0:	dis_juanxing();
 				show_picture(gImage_2222);
-				while(num == 0);
+				lp0 : while(num == 0);
 				break;
-		case 1:	dis_circle();
-				dis_zhongkai();
-				while(num == 1);
+		case 1:	dis_zhongkai();
+				lp1 : while(num == 1);
 				break;
-		case 2:	dis_juanxing();
-				show_picture(gImage_111);
-				while(num == 2);
+		case 2:	dis_baiye();
+				lp2 : while(num == 2);
 				break;	
 		default: break;
 	}
 	if(flag == 1)
 	{
 		flag = 0;
-		while(flag == 0 && num != 0 && num != 1 && num != 2)
+		dis_circle();
+		while(1)
 		{
-			 dis_circle(); 
-			 show_picture(gImage_2222); 
+			 dis_zhongkai(); 			  
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
-			 dis_zhongkai();
-			 if(num == 0 || num == 1 || num == 2)break;
+			 Delay(0xaffff);			 
+			 if(flag == 1 || num == 0 || num == 1 || num == 2)
+			 {
+				 flag = 0; 
+				 num = 0;
+				 goto lp0;
+			 }
+			 dis_baiye();
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
-			 if(num == 0 || num == 1 || num == 2)break;
+			 Delay(0xaffff);
+			 if(flag == 1 || num == 0 || num == 1 || num == 2)
+			 {
+				 flag = 0;
+				 num = 1;
+				 goto lp1; 
+			 }
 			 dis_juanxing();
-			 show_picture(gImage_111);
+			 show_picture(gImage_2222);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
 			 Delay(0xaffff);
+			 Delay(0xaffff);
+			 if(flag == 1 || num == 0 || num == 1 || num == 2)
+			 {
+				 flag = 0;
+				 num = 2;
+				 goto lp2; 
+			 }
 		}
 	} 
 	
