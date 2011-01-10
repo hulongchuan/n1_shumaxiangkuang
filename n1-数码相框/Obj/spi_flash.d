@@ -1,9 +1,0 @@
-.\Obj\spi_flash.o: User\SPI_Flash.c
-.\Obj\spi_flash.o: User\SPI_Flash.h
-.\Obj\spi_flash.o: .\FWlib\inc\stm32f10x_spi.h
-.\Obj\spi_flash.o: .\FWlib\inc\stm32f10x_map.h
-.\Obj\spi_flash.o: .\user\stm32f10x_conf.h
-.\Obj\spi_flash.o: .\FWlib\inc\stm32f10x_type.h
-.\Obj\spi_flash.o: .\FWlib\inc\cortexm3_macro.h
-.\Obj\spi_flash.o: .\FWlib\inc\stm32f10x_rcc.h
-.\Obj\spi_flash.o: .\FWlib\inc\stm32f10x_gpio.h
